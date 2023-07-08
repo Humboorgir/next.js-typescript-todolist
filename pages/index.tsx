@@ -4,7 +4,12 @@ import AddTask from "@/components/addtask";
 
 const Home: React.FC = () => {
   // (test data)
-  const [tasks, setTasks] = useState([]);
+  type Tasks = {
+    id: string;
+    content: string;
+  }[];
+
+  const [tasks, setTasks] = useState<Tasks>([]);
   useEffect(() => {
     fetch("/api/tasks", {
       method: "GET",

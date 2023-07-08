@@ -1,7 +1,12 @@
 import React, { useRef } from "react";
 
+type Tasks = {
+  id: string;
+  content: string;
+}[];
+
 interface Props {
-  setTasks: React.Dispatch<React.SetStateAction<never[]>>;
+  setTasks: React.Dispatch<React.SetStateAction<Tasks>>;
 }
 const AddTask: React.FC<Props> = ({ setTasks }) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -38,7 +43,7 @@ const AddTask: React.FC<Props> = ({ setTasks }) => {
     const addedTask: Task = await taskRequest.json();
 
     inputRef.current.value = "";
-    return setTasks((tasks) => [...tasks, addedTask]);
+    setTasks((prevTasks) => [...prevTasks, addedTask]);
   }
 };
 
