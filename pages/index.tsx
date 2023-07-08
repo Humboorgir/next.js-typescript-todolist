@@ -13,6 +13,7 @@ const Home: React.FC = () => {
       .then((tasks) => {
         setTasks(tasks);
       });
+    console.log(tasks);
   }, []);
   return (
     <div className="md:container md:mx-auto px-4 flex flex-col items-center justify-center mt-20">
@@ -20,7 +21,7 @@ const Home: React.FC = () => {
         <h2 className="text-2xl text-slate-900">Todo list</h2>
         <p className="text-base text-slate-800">What things are you planning to do today?</p>
         <TodoList tasks={tasks} />
-        <AddTask />
+        <AddTask setTasks={setTasks} />
       </div>
     </div>
   );

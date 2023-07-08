@@ -1,6 +1,9 @@
 import React from "react";
 
-const AddTask = () => {
+interface Props {
+  setTasks: React.Dispatch<React.SetStateAction<never[]>>;
+}
+const AddTask: React.FC<Props> = ({ setTasks }) => {
   return (
     <form onSubmit={submitHandler} className="w-full mt-4 flex flex-nowrap">
       <input
@@ -14,15 +17,25 @@ const AddTask = () => {
     </form>
   );
 
-  function submitHandler(e: React.FormEvent) {
+  async function submitHandler(e: React.FormEvent) {
     e.preventDefault();
     if (!e.target.content.value) return;
-    fetch("/api/tasks", {
+
+    type Task = {
+      id: string;
+      content: string;
+    };
+
+    const taskRequest = await fetch("/api/tasks", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ content: e.target.content.value }),
     });
-    return;
+    if (taskRequest.status !== 200) return;
+    const task: Task = await taskRequest.json();
+
+    e.target.content.value = "";
+    return setTasks((tasks) => [...tasks, task]);
   }
 };
 
