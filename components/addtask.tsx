@@ -1,3 +1,5 @@
+import React from "react";
+
 const AddTask = () => {
   return (
     <form onSubmit={submitHandler} className="w-full mt-4 flex flex-nowrap">
@@ -12,7 +14,7 @@ const AddTask = () => {
     </form>
   );
 
-  function submitHandler(e) {
+  function submitHandler(e: React.FormEvent) {
     e.preventDefault();
     return;
   }
