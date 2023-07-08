@@ -2,12 +2,10 @@ import React from "react";
 import Task from "@/components/task";
 
 interface Props {
-  tasks: [
-    {
-      id: string;
-      content: string;
-    }
-  ];
+  tasks: {
+    id: string;
+    content: string;
+  }[];
 }
 
 const TodoList: React.FC<Props> = ({ tasks }) => {
