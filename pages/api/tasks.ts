@@ -5,9 +5,9 @@ type Tasks = {
   content: string;
 }[];
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const tasks: Tasks = [];
+let tasks: Tasks = [];
 
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
     res.status(200).json(tasks);
   }
