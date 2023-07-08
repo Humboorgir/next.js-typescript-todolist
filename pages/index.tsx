@@ -6,18 +6,20 @@ const Home: React.FC = () => {
   const [tasks, setTasks] = useState([
     {
       id: "1",
-      content: "test 1",
+      title: "test 1",
+      content: "test 1 description hahahahahah",
     },
     {
       id: "2",
-      content: "test 2",
+      title: "test 2",
+      content: "test 2 description (not clickbait)",
     },
   ]);
   return (
     <div className="md:container md:mx-auto px-4 flex flex-col items-center justify-center mt-20">
       <form className="border border-neutral-300 rounded-lg p-4 text-center shadow-md">
-        <h2 className="text-2xl text-slate-800">Todo list</h2>
-        <p className="text-base text-slate-700">What things are you planning to do today?</p>
+        <h2 className="text-2xl text-slate-900">Todo list</h2>
+        <p className="text-base text-slate-800">What things are you planning to do today?</p>
         <TodoList tasks={tasks} />
       </form>
     </div>

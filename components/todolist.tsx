@@ -4,6 +4,7 @@ import Task from "@/components/task";
 interface Props {
   tasks: {
     id: string;
+    title: string;
     content: string;
   }[];
 }
