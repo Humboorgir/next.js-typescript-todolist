@@ -4,18 +4,16 @@ import AddTask from "@/components/addtask";
 
 const Home: React.FC = () => {
   // (test data)
-  const [tasks, setTasks] = useState([
-    {
-      id: "1",
-      title: "test 1",
-      content: "test 1 description hahahahahah",
-    },
-    {
-      id: "2",
-      title: "test 2",
-      content: "test 2 description (not clickbait)",
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+    fetch("/api/tasks", {
+      method: "GET",
+    })
+      .then((tasks) => tasks.json())
+      .then((tasks) => {
+        setTasks(tasks);
+      });
+  }, []);
   return (
     <div className="md:container md:mx-auto px-4 flex flex-col items-center justify-center mt-20">
       <div className="border border-neutral-300 rounded-lg p-4 text-center shadow-md">
