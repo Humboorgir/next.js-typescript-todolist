@@ -12,7 +12,7 @@ interface Props {
 
 const TodoList: React.FC<Props> = ({ tasks }) => {
   return (
-    <ul>
+    <ul className="flex flex-col gap-2 mt-6">
       {tasks.map((task) => {
         return <Task task={task} />;
       })}

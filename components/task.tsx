@@ -8,7 +8,11 @@ interface Props {
 }
 
 const Task: React.FC<Props> = ({ task }) => {
-  return <li key={task.id}>{task.content}</li>;
+  return (
+    <li className="bg-zinc-200 rounded-md py-2 px-4 text-left" key={task.id}>
+      {task.content}
+    </li>
+  );
 };
 
 export default Task;
