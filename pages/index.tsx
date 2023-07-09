@@ -3,11 +3,7 @@ import TodoList from "@/components/todolist";
 import AddTask from "@/components/addtask";
 
 const Home: React.FC = () => {
-  // (test data)
-  type Tasks = {
-    id: string;
-    content: string;
-  }[];
+  type Tasks = Task[];
 
   const [tasks, setTasks] = useState<Tasks>([]);
   useEffect(() => {

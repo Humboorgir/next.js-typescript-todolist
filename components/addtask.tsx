@@ -1,9 +1,6 @@
 import React, { useRef } from "react";
 
-type Tasks = {
-  id: string;
-  content: string;
-}[];
+type Tasks = Task[];
 
 interface Props {
   setTasks: React.Dispatch<React.SetStateAction<Tasks>>;
